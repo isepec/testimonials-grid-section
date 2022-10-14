@@ -1,0 +1,147 @@
+/* ===== General ===== */
+:root {
+    --clr-violet: hsl(263, 55%, 52%);
+
+    --clr-grey-0: hsl(219, 29%, 14%);
+    --clr-grey-1: hsl(217, 19%, 35%);
+    --clr-grey-2: hsl(0, 0%, 81%);
+    --clr-grey-max: hsl(210, 46%, 95%);
+
+    --clr-white: hsl(0, 0%, 100%);
+    --clr-white-transparent: hsla(0, 0%, 100%, 50%); /* avatar outline */
+
+    --shadow: 0 1.25rem 1.25rem hsla(0, 0%, 0%, 10%);
+
+    font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    min-height: 100%;
+    background: var(--clr-grey-max);
+}
+
+img {
+    display: block;
+}
+
+
+/* ===== Main ===== */
+.container-cards {
+    display: grid;
+    gap: 1.5rem;
+    margin: 1.5rem;
+}
+
+.card {
+    color: var(--clr-grey-1);
+    background: var(--clr-white);
+    box-shadow: var(--shadow);
+
+    padding: 1.5rem 2rem 2rem;
+    border-radius: 0.5rem;
+
+    font-size: 0.8125rem;
+}
+
+.card--fg-white {
+    color: var(--clr-white);
+}
+
+.card--bg-violet {
+    background: url(images/bg-pattern-quotation.svg) no-repeat right 1.5rem top, var(--clr-violet);
+}
+
+.card--bg-grey-light {
+    background: var(--clr-grey-1);
+}
+
+.card--bg-grey-dark {
+    background: var(--clr-grey-0);
+}
+
+.card__person {
+    display: flex;
+
+    margin-bottom: 1rem;
+}
+
+.card__person-avatar {
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 2rem;
+    outline: solid 0.125rem var(--clr-white-transparent);
+
+    margin-right: 1rem;
+}
+
+.card__person-verified {
+    font-size: 0.6875rem;
+    opacity: 50%;
+}
+
+.card__heading {
+    letter-spacing: 0.0187rem;
+    margin-bottom: 1rem;
+}
+
+.card__quote {
+    opacity: 70%;
+    line-height: 1.4;
+}
+
+
+/* ===== Media Queries (Desktop) ===== */
+@media (min-width: 1000px) {
+    main {
+        display: grid;
+        place-items: center;
+        min-height: 100vh;
+    }
+
+    .container-cards {
+        max-width: 69.375rem;
+        
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas:
+            "a a b e"
+            "c d d e";
+    }
+
+    .card--grid-a {
+        grid-area: a;
+    }
+
+    .card--grid-b {
+        grid-area: b;
+    }
+
+    .card--grid-c {
+        grid-area: c;
+    }
+
+    .card--grid-d {
+        grid-area: d;
+    }
+
+    .card--grid-e {
+        grid-area: e;
+    }
+
+    .card--bg-violet {
+        background: url(images/bg-pattern-quotation.svg) no-repeat right 5rem top, var(--clr-violet);
+    }
+
+    .card {
+        transition: transform .5s;
+    }
+
+    .card:hover {
+        transform: scale(1.03);
+    }
+}

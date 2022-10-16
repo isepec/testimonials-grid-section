@@ -49,6 +49,7 @@ Responsiveness
 ### What I learned
 
 - That `flex` is better at single-row compositions, whereas `grid` shines at complex layout systems.
+- To use `blockquotes`.
 
 <br>
 

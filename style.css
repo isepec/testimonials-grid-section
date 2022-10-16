@@ -29,6 +29,14 @@ img {
     display: block;
 }
 
+blockquote::before {
+    content: open-quote " ";
+  }
+  
+blockquote::after {
+    content: " " close-quote;
+}
+
 
 /* ===== Main ===== */
 .container-cards {
@@ -95,22 +103,22 @@ img {
 }
 
 
-/* ===== Media Queries (Desktop) ===== */
-@media (min-width: 1000px) {
+/* ===== Media Queries (Tablets) ===== */
+@media (min-width: 600px) {
     main {
         display: grid;
         place-items: center;
         min-height: 100vh;
     }
 
-    .container-cards {
-        max-width: 69.375rem;
-        
+    .container-cards {        
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         grid-template-areas:
-            "a a b e"
-            "c d d e";
+            "a a"
+            "b c"
+            "e d"
+            "e d";
     }
 
     .card--grid-a {
@@ -135,6 +143,19 @@ img {
 
     .card--bg-violet {
         background: url(images/bg-pattern-quotation.svg) no-repeat right 5rem top, var(--clr-violet);
+    }
+}
+
+
+/* ===== Media Queries (Desktop) ===== */
+@media (min-width: 1000px) {
+    .container-cards {
+        max-width: 69.375rem;
+        
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas:
+            "a a b e"
+            "c d d e";
     }
 
     .card {
